@@ -10,13 +10,13 @@ pipeline{
 
         stage('Build') {
             steps {
-                bat 'pip install selenium'               
+                sh 'pip install selenium'               
             }
         }
 
         stage("Running the tests") {
             steps {
-               bat 'python test.py'
+               sh 'python test.py'
             }
        }
     }
