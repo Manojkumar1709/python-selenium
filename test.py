@@ -4,7 +4,7 @@ from selenium import webdriver
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
         #self.driver = webdriver.Chrome()  
-        self.driver = webdriver.Firefox()  
+        self.driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver')  
         self.driver.implicitly_wait(10)
 
     def test_website_load(self):
