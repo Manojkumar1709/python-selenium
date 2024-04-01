@@ -5,11 +5,11 @@ from selenium.webdriver.firefox.service import Service
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
         #self.driver = webdriver.Chrome()  
-        #self.driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver')  
+        #self.driver = webdriver.Firefox(executable_path='/usr/bin/geckodriver')  
         # geckodriver_path = '/usr/local/bin/geckodriver'
         # service = Service(geckodriver_path)
         # self.driver = webdriver.Firefox(service=service)
-        geckodriver_path = '/usr/local/bin/geckodriver'
+        geckodriver_path = '/usr/bin/geckodriver'
         service = Service(geckodriver_path)
         service.start()
         options = webdriver.FirefoxOptions()
