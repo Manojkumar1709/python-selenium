@@ -3,7 +3,8 @@ from selenium import webdriver
 
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Chrome()  
+        #self.driver = webdriver.Chrome()  
+        self.driver = webdriver.Firefox()  
         self.driver.implicitly_wait(10)
 
     def test_website_load(self):
