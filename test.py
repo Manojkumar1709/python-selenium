@@ -1,6 +1,7 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
 import os 
 import time  
 
@@ -15,9 +16,11 @@ class TestWebsiteLoading(unittest.TestCase):
 
         firefox_binary = "/usr/bin/firefox"
 
+        service = Service(executable_path=firefox_binary)
+
         try:
             # Launch the browser with potential fixes
-            self.driver = webdriver.Firefox(options=options, executable_path=firefox_binary)
+            self.driver = webdriver.Firefox(service=service, options=options)
         except Exception as e:
             print(f"Failed to launch Firefox: {e}")
             self.tearDown()  
