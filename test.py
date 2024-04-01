@@ -1,20 +1,9 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service
 
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
-        #self.driver = webdriver.Chrome()  
-        #self.driver = webdriver.Firefox(executable_path='/usr/local/bin/geckodriver')  
-        # geckodriver_path = '/usr/local/bin/geckodriver'
-        # service = Service(geckodriver_path)
-        # self.driver = webdriver.Firefox(service=service)
-        geckodriver_path = '/usr/local/bin/geckodriver'
-        service = Service(geckodriver_path)
-        service.start()
-        options = webdriver.FirefoxOptions()
-        options.add_argument('-headless')  # Optional: run Firefox in headless mode
-        self.driver = webdriver.Firefox(service=service, options=options)
+        self.driver = webdriver.Firefox()  # You can use any WebDriver you prefer
         self.driver.implicitly_wait(10)
 
     def test_website_load(self):
@@ -27,8 +16,6 @@ class TestWebsiteLoading(unittest.TestCase):
             print("Failed to load the website")
             result = "Test case is failed"
         print(result)
-
-
 
     def tearDown(self):
         self.driver.quit()
