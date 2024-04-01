@@ -10,9 +10,11 @@ class TestWebsiteLoading(unittest.TestCase):
         # service = Service(geckodriver_path)
         # self.driver = webdriver.Firefox(service=service)
         geckodriver_path = '/usr/local/bin/geckodriver'
+        service = Service(geckodriver_path)
+        service.start()
         options = webdriver.FirefoxOptions()
         options.add_argument('-headless')  # Optional: run Firefox in headless mode
-        self.driver = webdriver.Firefox(executable_path=geckodriver_path, options=options)
+        self.driver = webdriver.Firefox(service=service, options=options)
         self.driver.implicitly_wait(10)
 
     def test_website_load(self):
