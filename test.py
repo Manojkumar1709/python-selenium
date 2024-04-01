@@ -1,15 +1,18 @@
 import unittest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
+import os
 
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
+        if not os.getenv("PATH") or "geckodriver" not in os.getenv("PATH"):
+            os.environ["PATH"] = os.pathsep.join([os.environ["PATH"], "/snap/bin/geckodriver"])
         options = Options()
         options.headless = True
         # Launch the browser with headless options
         self.driver = webdriver.Firefox(options=options)
         self.driver = webdriver.Firefox()  # You can use any WebDriver you prefer
-        self.driver.implicitly_wait(50)
+        self.driver.implicitly_wait()
 
     def test_website_load(self):
         print("Loading the website...")
