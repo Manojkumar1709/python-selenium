@@ -12,7 +12,7 @@ class TestWebsiteLoading(unittest.TestCase):
             self.driver.implicitly_wait(10)
         except Exception as e:
             print("Error initializing Chrome WebDriver:", e)
-        self.driver.implicitly_wait(10)
+        #self.driver.implicitly_wait(10)
 
     def test_website_load(self):
         print("Loading the website...")
