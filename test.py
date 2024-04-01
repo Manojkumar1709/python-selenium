@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.firefox.service import Service
 
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
