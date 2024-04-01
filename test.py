@@ -1,10 +1,15 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
 
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
+        options = Options()
+        options.headless = True
+        # Launch the browser with headless options
+        self.driver = webdriver.Firefox(options=options)
         self.driver = webdriver.Firefox()  # You can use any WebDriver you prefer
-        self.driver.implicitly_wait(10)
+        self.driver.implicitly_wait(50)
 
     def test_website_load(self):
         print("Loading the website...")
