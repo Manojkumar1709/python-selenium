@@ -3,16 +3,8 @@ from selenium import webdriver
 
 class TestWebsiteLoading(unittest.TestCase):
     def setUp(self):
-        #self.driver = webdriver.Chrome()  # You can use any WebDriver you prefer
-        chrome_driver_path = '/usr/bin/google-chrome'
-        #self.driver = webdriver.Chrome(executable_path=chrome_driver_path)
-        try:
-            # Initialize Chrome WebDriver with the specified path
-            self.driver = webdriver.Chrome(executable_path=chrome_driver_path)
-            self.driver.implicitly_wait(10)
-        except Exception as e:
-            print("Error initializing Chrome WebDriver:", e)
-        #self.driver.implicitly_wait(10)
+        self.driver = webdriver.Chrome()  # You can use any WebDriver you prefer
+        self.driver.implicitly_wait(10)
 
     def test_website_load(self):
         print("Loading the website...")
